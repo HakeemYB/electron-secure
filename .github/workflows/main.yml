@@ -20,7 +20,7 @@ jobs:
     - name: Notify
       uses: crazy-max/ghaction-github-pages@v2.4.1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
       with:
         status: ${{ job.status }}
         url: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
