@@ -6,6 +6,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "bundle": "electron-builder --prepackaged ./dist",
     "start": "npm run build && electron ./dist/main.js",
     "electronegativity": "electronegativity -i ./src"
   },
@@ -32,5 +33,12 @@
     "electron": "^13.1.1",
     "eslint": "^7.3.1",
     "typescript": "^3.9.5"
+  }
+},
+  "dependencies": {
+    "electron": "^13.0.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.11.7"
   }
 }
