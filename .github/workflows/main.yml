@@ -16,7 +16,7 @@ jobs:
         npm run build
     - name: audit the app
       run: |
-        npm audit
+        npm audit fix --force
     - name: Bundle the app
       run: |
         npm run bundle
