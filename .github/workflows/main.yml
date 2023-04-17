@@ -1,0 +1,28 @@
+name: Build and Bundle
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-bundle:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        npm install
+    - name: Build the app
+      run: |
+        npm run build
+    - name: Bundle the app
+      run: |
+        npm run bundle
+    - name: Notify
+      uses: crazy-max/ghaction-github-pages@v2.4.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        status: ${{ job.status }}
+        url: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
+        title: "Build and Bundle"
+        message: "The build and bundle workflow has completed."
